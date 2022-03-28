@@ -1,0 +1,31 @@
+﻿@inherits Crm.Layouts.LoginLayoutComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Crm.Models.Crmdata
+@using Microsoft.AspNetCore.Identity;
+@using Crm.Models
+<RadzenDialog />
+<RadzenNotification />
+<RadzenTooltip />
+<RadzenContextMenu />
+
+<RadzenBody @ref="body0" style="margin-left: 0px" Expanded="true">
+  <ChildContent>
+    <RadzenImage Path="assets/images/login-background.png" style="bottom: 0px; height: 100%; left: 0px; position: absolute; right: 0px; top: 0px; width: 100%">
+    </RadzenImage>
+    <div class="row align-items-center justify-content-center" style="float: none; height: 100%; margin-left: 0px; margin-right: 0px; padding-bottom: 0px; padding-top: 0px; position: static; text-align: center; vertical-align: middle; width: 100%">
+      <div class="justify-content-center   col-xl-3 col-lg-4 col-md-5 col-sm-8">
+        <RadzenCard style="margin-top: 8rem">
+          <ChildContent>
+            <RadzenImage Path="assets/images/logo.jpg" style="border-radius: 64px; display: block; height: 128px; margin-left: auto; margin-right: auto; margin-top: -72px; width: 128px">
+            </RadzenImage>
+            <RadzenContentContainer Name="main">
+            @Body
+            </RadzenContentContainer>
+          </ChildContent>
+        </RadzenCard>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenBody>

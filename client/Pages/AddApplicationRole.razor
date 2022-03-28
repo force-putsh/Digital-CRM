@@ -1,0 +1,44 @@
+﻿@page "/add-application-role"
+@layout MainLayout
+@inherits Crm.Pages.AddApplicationRoleComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Crm.Models.Crmdata
+@using Microsoft.AspNetCore.Identity;
+@using Crm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles="Sales Manager")]
+<PageTitle>Add Application Role</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@role" TItem="IdentityRole" Visible="@(role != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Name" style="width: 100%" Text="Nom">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox style="display: block; width: 100%" @bind-Value="@(role.Name)" Name="Name">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Name" style="position: absolute" Text="Le nom est requis">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Enregistrer">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Annuler" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

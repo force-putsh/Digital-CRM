@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crm.Server</name>
+    </assembly>
+    <members>
+        <member name="M:Crm.Controllers.Crmdata.ContratsController.OnContratsRead(System.Linq.IQueryable{Crm.Models.Crmdata.Contrat}@)">
+            <summary>
+            It filters the opportunities by the current user's id.
+            </summary>
+            <param name="items">The queryable object that you want to filter.</param>
+        </member>
+        <member name="M:Crm.Controllers.Crmdata.ContratsController.OnContratCreated(Crm.Models.Crmdata.Contrat)">
+            <summary>
+            It sets the UserId property of the opportunity to the current user's id.
+            </summary>
+            <param name="item">The opportunity that is being created.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Crm.Data.CrmdataContext.OnModelBuilding(Microsoft.EntityFrameworkCore.ModelBuilder)" -->
+    </members>
+</doc>

@@ -1,0 +1,38 @@
+﻿@page "/statut-taches"
+@layout MainLayout
+@inherits Crm.Pages.StatutTachesComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Crm.Models.Crmdata
+@using Microsoft.AspNetCore.Identity;
+@using Crm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+<PageTitle>Statut Taches</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Statut Taches">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenDataGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Count="@getStatutTachesCount" Data="@getStatutTachesResult" FilterMode="Radzen.FilterMode.Advanced" TItem="Crm.Models.Crmdata.StatutTache" PageSize="20" LoadData="@Grid0LoadData" RowDoubleClick="@Grid0RowDoubleClick">
+          <Columns>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.StatutTache" Property="Id" Title="Id">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.StatutTache" Property="Name" Title="Name">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.StatutTache" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="70px">
+              <Template Context="crmModelsCrmdataStatutTache">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, crmModelsCrmdataStatutTache))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

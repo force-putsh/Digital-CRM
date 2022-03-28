@@ -1,0 +1,151 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = browser
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = Crm.Client
+build_property.RootNamespace = Crm.Client
+build_property.ProjectDir = C:\Users\vngou\Documents\Projet de fin de formation LIPRO\Digital CRM\client\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\vngou\Documents\Projet de fin de formation LIPRO\Digital CRM\client
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/AddApplicationRole.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQXBwbGljYXRpb25Sb2xlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/AddApplicationUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQXBwbGljYXRpb25Vc2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/AddContact.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ29udGFjdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/AddContrat.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ29udHJhdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/AddStatutContrat.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkU3RhdHV0Q29udHJhdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/AddStatutTache.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkU3RhdHV0VGFjaGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/AddTache.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVGFjaGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/AddTypesTache.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVHlwZXNUYWNoZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/ApplicationRoles.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwbGljYXRpb25Sb2xlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/ApplicationUsers.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwbGljYXRpb25Vc2Vycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/Contacts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/Contrats.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udHJhdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/EditApplicationUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEFwcGxpY2F0aW9uVXNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/EditContact.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdENvbnRhY3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/EditContrat.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdENvbnRyYXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/EditStatutContrat.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFN0YXR1dENvbnRyYXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/EditStatutTache.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFN0YXR1dFRhY2hlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/EditTache.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFRhY2hlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/EditTypesTache.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFR5cGVzVGFjaGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/Profile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/RegisterApplicationUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXJBcHBsaWNhdGlvblVzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/StatutContrats.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhdHV0Q29udHJhdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/StatutTaches.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhdHV0VGFjaGVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/Taches.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFjaGVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/TypesTaches.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHlwZXNUYWNoZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Pages/Unauthorized.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVW5hdXRob3JpemVkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Shared/LoginLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/Shared/RedirectToLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFJlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vngou/Documents/Projet de fin de formation LIPRO/Digital CRM/client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

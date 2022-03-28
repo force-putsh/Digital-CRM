@@ -1,0 +1,216 @@
+﻿@page "/"
+@page "/home"
+@layout MainLayout
+@inherits Crm.Pages.HomeComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Crm.Models.Crmdata
+@using Microsoft.AspNetCore.Identity;
+@using Crm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+<PageTitle>Home</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Dashboard">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12 col-xl-3 col-lg-6">
+        <RadzenCard style="margin-bottom: 16px">
+          <ChildContent>
+            <div class="row">
+              <div class="col-4">
+                <RadzenIcon Icon="attach_money" style="background-color: #68d5c8; font-size: 48px; height: 64px; margin-left: -10px; margin-right: ; width: 50px">
+                </RadzenIcon>
+              </div>
+              <div class="col-8">
+                <RadzenHeading Size="H4" style="margin-bottom: 0px; text-align: right" Text="Revenus">
+                </RadzenHeading>
+                <RadzenHeading Size="H4" style="color: #88989b; font-size: 12px; margin-bottom: 0px; text-align: right" Text="LAST MONTH">
+                </RadzenHeading>
+                <RadzenHeading Size="H4" style="color: #88989b; font-size: 24px; margin-bottom: 0px; margin-top: 13px; text-align: right" Text="@(monthlyStats?.Revenue.ToString("C",CultureInfo.CurrentCulture))">
+                </RadzenHeading>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenCard>
+      </div>
+      <div class="col-md-12 col-xl-3 col-lg-6">
+        <RadzenCard style="margin-bottom: 16px">
+          <ChildContent>
+            <div class="row">
+              <div class="col-4">
+                <RadzenIcon Icon="shopping_cart" style="background-color: #f9777f; font-size: 48px; height: 64px; margin-left: -10px; margin-right: ; width: 50px">
+                </RadzenIcon>
+              </div>
+              <div class="col-8">
+                <RadzenHeading Size="H4" style="margin-bottom: 0px; text-align: right" Text="Contrats">
+                </RadzenHeading>
+                <RadzenHeading Size="H4" style="color: #88989b; font-size: 12px; margin-bottom: 0px; text-align: right" Text="LAST MONTH">
+                </RadzenHeading>
+                <RadzenHeading Size="H4" style="background-color: rgba(255, 109, 65, 0.02); color: #ff6d41; font-size: 24px; margin-bottom: 0px; margin-top: 13px; text-align: right" Text="@(monthlyStats?.Contrats.ToString())">
+                </RadzenHeading>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenCard>
+      </div>
+      <div class="col-md-12 col-xl-3 col-lg-6">
+        <RadzenCard style="margin-bottom: 16px">
+          <ChildContent>
+            <div class="row">
+              <div class="col-4">
+                <RadzenIcon Icon="account_balance_wallet" style="background-color: #ff6d41; font-size: 48px; height: 64px; margin-left: -10px; margin-right: ; width: 50px">
+                </RadzenIcon>
+              </div>
+              <div class="col-8">
+                <RadzenHeading Size="H4" style="margin-bottom: 0px; text-align: right" Text="Average Wallet">
+                </RadzenHeading>
+                <RadzenHeading Size="H4" style="color: #88989b; font-size: 12px; margin-bottom: 0px; text-align: right" Text="LAST MONTH">
+                </RadzenHeading>
+                <RadzenHeading Size="H4" style="background-color: rgba(246, 238, 235, 0.06); color: #f9777f; font-size: 24px; margin-bottom: 0px; margin-top: 13px; text-align: right" Text="@(monthlyStats?.AverageDealSize.ToString())">
+                </RadzenHeading>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenCard>
+      </div>
+      <div class="col-md-12 col-xl-3 col-lg-6">
+        <RadzenCard style="margin-bottom: 16px">
+          <ChildContent>
+            <div class="row">
+              <div class="col-4">
+                <RadzenIcon Icon="thumb_up" style="background-color: #479cc8; font-size: 48px; height: 64px; margin-left: -10px; margin-right: ; width: 50px">
+                </RadzenIcon>
+              </div>
+              <div class="col-8">
+                <RadzenHeading Size="H4" style="margin-bottom: 0px; text-align: right" Text="Taux de réussite">
+                </RadzenHeading>
+                <RadzenHeading Size="H4" style="color: #88989b; font-size: 12px; margin-bottom: 0px; text-align: right" Text="LAST MONTH">
+                </RadzenHeading>
+                <RadzenHeading Size="H4" style="background-color: rgba(246, 238, 235, 0.06); color: #479cc8; font-size: 24px; margin-bottom: 0px; margin-top: 13px; text-align: right" Text="@(monthlyStats?.Ratio.ToString("P"))">
+                </RadzenHeading>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenCard>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-4 col-lg-6" style="margin-bottom: ">
+        <RadzenCard style="margin-bottom: 16px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px; width: ">
+          <ChildContent>
+            <RadzenHeading Size="H3" Text="Valeur marchant du client">
+            </RadzenHeading>
+            <RadzenChart ColorScheme="ColorScheme.Divergent" style="display: inline-block; height: ; width: 100%">
+              <ChildContent>
+                <RadzenCategoryAxis LineType="LineType.Solid">
+                  <ChildContent>
+                    <RadzenGridLines Visible="false">
+                    </RadzenGridLines>
+                  </ChildContent>
+                </RadzenCategoryAxis>
+                <RadzenLegend>
+                </RadzenLegend>
+                <RadzenDonutSeries CategoryProperty="Company" Data="@revenueByCompany" ValueProperty="Revenue">
+                </RadzenDonutSeries>
+                <RadzenValueAxis>
+                </RadzenValueAxis>
+              </ChildContent>
+            </RadzenChart>
+          </ChildContent>
+        </RadzenCard>
+      </div>
+      <div class="col-xl-4 col-lg-6" style="margin-bottom: ">
+        <RadzenCard style="margin-bottom: 16px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px; width: ">
+          <ChildContent>
+            <RadzenHeading Size="H3" Text="Revenue par Mois">
+            </RadzenHeading>
+            <RadzenChart ColorScheme="ColorScheme.Monochrome" style="display: inline-block; height: ; width: 100%">
+              <ChildContent>
+                <RadzenLegend Position="LegendPosition.Right" Visible="false">
+                </RadzenLegend>
+                <RadzenAreaSeries CategoryProperty="Month" Data="@revenueByMonth" ValueProperty="Revenue">
+                </RadzenAreaSeries>
+              </ChildContent>
+            </RadzenChart>
+          </ChildContent>
+        </RadzenCard>
+      </div>
+      <div class="col-xl-4 col-lg-6" style="margin-bottom: ">
+        <RadzenCard style="margin-bottom: 16px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px; width: ">
+          <ChildContent>
+            <RadzenHeading Size="H3" Text="Revenue par Employé">
+            </RadzenHeading>
+            <RadzenChart ColorScheme="ColorScheme.Palette" style="display: inline-block; height: ; width: 100%">
+              <ChildContent>
+                <RadzenLegend Position="LegendPosition.Right" Visible="false">
+                </RadzenLegend>
+                <RadzenBarSeries CategoryProperty="Employee" Data="@revenueByEmployee" ValueProperty="Revenue">
+                </RadzenBarSeries>
+              </ChildContent>
+            </RadzenChart>
+          </ChildContent>
+        </RadzenCard>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-6">
+        <RadzenHeading Size="H3" Text="Contrat Récent">
+        </RadzenHeading>
+        <RadzenDataGrid @ref="datagrid0" Data="@getOpportunitiesResult" TItem="Crm.Models.Crmdata.Contrat" Responsive="true">
+          <Columns>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" SortProperty="Contact.FirstName" Title="Contact">
+              <Template Context="data">
+              @(data.Contact.FirstName) @(data.Contact.LastName)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" Property="Amount" Title="Amount">
+              <Template Context="data">
+              @(data.Amount.ToString("C"))
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" Property="StatusId" Title="Status">
+              <Template Context="data">
+              @(data.StatutContrat.Name)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" FormatString="{0:d}" Property="CloseDate" Title="Close Date">
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+      <div class="col-xl-6">
+        <RadzenHeading Size="H3" Text="Tâches Actives">
+        </RadzenHeading>
+        <RadzenDataGrid @ref="datagrid1" Data="@getTasksResult" TItem="Crm.Models.Crmdata.Tache" Responsive="true">
+          <Columns>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Tache" FormatString="{0:d}" SortProperty="Contrat.User.LastName" Title="Employee">
+              <Template Context="crmModelsCrmdataTache">
+                <RadzenImage Path="@(crmModelsCrmdataTache.Contrat.User.PhotoProfil)" style="border-radius: 15px; height: 30px; width: 30px">
+                </RadzenImage>
+                <RadzenLabel Text="@($"{(crmModelsCrmdataTache.Contrat.User.Nom)}")">
+                </RadzenLabel>
+                <RadzenLabel Text="@($"{(crmModelsCrmdataTache.Contrat.User.Prenom)}")">
+                </RadzenLabel>
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Tache" SortProperty="Contrat.Name" Title="Title">
+              <Template Context="crmModelsCrmdataTache">
+                <RadzenLabel style="display: block" Text="@($"{(crmModelsCrmdataTache.Contrat.Name)}")">
+                </RadzenLabel>
+                <RadzenLabel Text="@($"{(crmModelsCrmdataTache.Contrat.Contact.FirstName)}")">
+                </RadzenLabel>
+                <RadzenLabel Text="@($"{(crmModelsCrmdataTache.Contrat.Contact.LastName)}")">
+                </RadzenLabel>
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Tache" FormatString="{0:d}" Property="DueDate" Title="Due Date">
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

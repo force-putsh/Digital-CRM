@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crm.Client</name>
+    </assembly>
+    <members>
+        <member name="M:Crm.Pages.HomeComponent.MonthlyStats">
+            <summary>
+            It returns the monthly statistics for the server.
+            </summary>
+            <returns>
+            The `Stats` object.
+            </returns>
+        </member>
+        <member name="M:Crm.Pages.HomeComponent.RevenueByCompany">
+            <summary>
+            It returns a list of revenue by company.
+            </summary>
+            <returns>
+            An IEnumerable of RevenueByCompany objects.
+            </returns>
+        </member>
+        <member name="M:Crm.Pages.HomeComponent.RevenueByEmployee">
+            <summary>
+            Get revenue by employee
+            </summary>
+            <returns>
+            An IEnumerable of RevenueByEmployee objects.
+            </returns>
+        </member>
+        <member name="M:Crm.Pages.HomeComponent.RevenueByMonth">
+            <summary>
+            It returns a list of revenue by month.
+            </summary>
+            <returns>
+            The method returns an IEnumerable of RevenueByMonth objects.
+            </returns>
+        </member>
+    </members>
+</doc>

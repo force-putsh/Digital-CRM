@@ -1,0 +1,70 @@
+﻿@page "/contrats"
+@layout MainLayout
+@inherits Crm.Pages.ContratsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Crm.Models.Crmdata
+@using Microsoft.AspNetCore.Identity;
+@using Crm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+<PageTitle>Contrats</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Contrats">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-bottom: 10px; margin-left: 10px" Text="Export" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="Excel" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="CSV" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenTextBox Placeholder="Search ..." style="display: block; margin-bottom: 10px; width: 100%" Name="Textbox0" @oninput="@(async(args) => {search = $"{args.Value}";await grid0.GoToPage(0);await grid0.Reload();})">
+        </RadzenTextBox>
+        <RadzenDataGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Count="@getContratsCount" Data="@getContratsResult" FilterMode="Radzen.FilterMode.Advanced" TItem="Crm.Models.Crmdata.Contrat" PageSize="20" Responsive="true" style="height: " LoadData="@Grid0LoadData" RowDoubleClick="@Grid0RowDoubleClick">
+          <Columns>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" Property="Id" Title="Id">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" Property="Amount" Title="Amount">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" Property="Name" Title="Name">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" FilterProperty="User.Nom" Property="UserId" SortProperty="User.Nom" Title="User Id">
+              <Template Context="crmModelsCrmdataContrat">
+                <RadzenLabel Text="@($"{(crmModelsCrmdataContrat.User.Prenom)}")">
+                </RadzenLabel>
+                <RadzenLabel Text="@($"{(crmModelsCrmdataContrat.User.Nom)}")">
+                </RadzenLabel>
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" FilterProperty="Contact.Email" GroupProperty="Contact.Email" Property="ContactId" SortProperty="Contact.Email" Title="Contact">
+              <Template Context="data">
+              @(data.Contact?.Email)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" FilterProperty="StatutContrat.Name" GroupProperty="StatutContrat.Name" Property="StatusId" SortProperty="StatutContrat.Name" Title="Statut Contrat">
+              <Template Context="data">
+              @(data.StatutContrat?.Name)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" FormatString="{0:MM/dd/yyyy}" Property="CloseDate" Title="Close Date">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Contrat" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="70px">
+              <Template Context="crmModelsCrmdataContrat">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, crmModelsCrmdataContrat))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

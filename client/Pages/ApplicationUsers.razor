@@ -1,0 +1,48 @@
+﻿@page "/application-users"
+@layout MainLayout
+@inherits Crm.Pages.ApplicationUsersComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Crm.Models.Crmdata
+@using Microsoft.AspNetCore.Identity;
+@using Crm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles="Sales Manager")]
+<PageTitle>Application Users</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Users">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Ajouter" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenDataGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@users" TItem="ApplicationUser" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenDataGridColumn TItem="ApplicationUser" Property="UserName" Title="User Name">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="ApplicationUser" Property="Email" Title="Email">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="ApplicationUser" Property="Nom" Title="Nom">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="ApplicationUser" Property="Prenom" Title="Prenom">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="ApplicationUser" Property="PhotoProfil" Title="Photo Profil">
+              <Template Context="applicationUser">
+                <RadzenImage Path="@(applicationUser.PhotoProfil)" style="height: 50px; width: 50px">
+                </RadzenImage>
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="ApplicationUser" Filterable="false" Sortable="false" Width="70px">
+              <Template Context="applicationUser">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, applicationUser))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

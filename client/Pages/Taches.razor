@@ -1,0 +1,81 @@
+﻿@page "/taches"
+@layout MainLayout
+@inherits Crm.Pages.TachesComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Crm.Models.Crmdata
+@using Microsoft.AspNetCore.Identity;
+@using Crm.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+<PageTitle>Taches</PageTitle>
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Taches">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-bottom: 10px; margin-left: 10px" Text="Export" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="Excel" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="CSV" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenTextBox Placeholder="Search ..." style="display: block; margin-bottom: 10px; width: 100%" Name="Textbox0" @oninput="@(async(args) => {search = $"{args.Value}";await grid0.GoToPage(0);await grid0.Reload();})">
+        </RadzenTextBox>
+        <RadzenDataGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Count="@getTachesCount" Data="@getTachesResult" FilterMode="Radzen.FilterMode.Advanced" TItem="Crm.Models.Crmdata.Tache" PageSize="20" Responsive="true" LoadData="@Grid0LoadData" RowDoubleClick="@Grid0RowDoubleClick">
+          <Columns>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Tache" Property="Id" Title="Id">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Tache" Property="Title" Title="Title">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Tache" FilterProperty="Contrat.Name" GroupProperty="Contrat.Name" Property="OpportunityId" SortProperty="Contrat.Name" Title="Contrat">
+              <Template Context="data">
+              @(data.Contrat?.Name)
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Tache" FormatString="{0:MM/dd/yyyy}" Property="DueDate" Title="Due Date">
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Tache" FilterProperty="TypesTache.Name" GroupProperty="TypesTache.Name" Property="TypeId" SortProperty="TypesTache.Name" Title="Types Tache">
+              <Template Context="crmModelsCrmdataTache">
+                <RadzenIcon Icon="textsms" style="vertical-align: middle" Visible="@(crmModelsCrmdataTache.TypesTache.Name=="Sms")">
+                </RadzenIcon>
+                <RadzenIcon Icon="email" style="vertical-align: middle" Visible="@(crmModelsCrmdataTache.TypesTache.Name=="Email")">
+                </RadzenIcon>
+                <RadzenIcon Icon="video_call" style="vertical-align: middle" Visible="@(crmModelsCrmdataTache.TypesTache.Name=="Online Meeting")">
+                </RadzenIcon>
+                <RadzenIcon Icon="settings_phone" style="vertical-align: middle" Visible="@(crmModelsCrmdataTache.TypesTache.Name=="Call")">
+                </RadzenIcon>
+                <RadzenLabel style="vertical-align: middle" Text="@($"{(crmModelsCrmdataTache.TypesTache.Name)}")">
+                </RadzenLabel>
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Tache" FilterProperty="StatutTache.Name" GroupProperty="StatutTache.Name" Property="StatusId" SortProperty="StatutTache.Name" Title="Statut Tache">
+              <Template Context="crmModelsCrmdataTache">
+                <RadzenIcon Icon="autorenew" style="vertical-align: middle" Visible="@(crmModelsCrmdataTache.StatutTache.Name=="In Progress")">
+                </RadzenIcon>
+                <RadzenIcon Icon="cancel" style="vertical-align: middle" Visible="@(crmModelsCrmdataTache.StatutTache.Name=="Not Started")">
+                </RadzenIcon>
+                <RadzenIcon Icon="check_circle" style="vertical-align: middle" Visible="@(crmModelsCrmdataTache.StatutTache.Name=="Complete")">
+                </RadzenIcon>
+                <RadzenLabel style="vertical-align: middle" Text="@($"{(crmModelsCrmdataTache.StatutTache.Name)}")">
+                </RadzenLabel>
+              </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Crm.Models.Crmdata.Tache" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="70px">
+              <Template Context="crmModelsCrmdataTache">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, crmModelsCrmdataTache))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenDataGridColumn>
+          </Columns>
+        </RadzenDataGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>
